@@ -12,12 +12,13 @@ def self.search(options = {})
   where_clause = ''
   keycount = options.keys.count
   options.each_with_index do |(key,value),index|
-    if index == keycount - 1
-      where_clause += "#{value[:columns]} #{value[:operand]} '#{value[:column_value]}'"
+    if index == 0
+      where_clause += "(#{value[:columns]} #{value[:operand]} '#{value[:column_value]}' "
     else
-      where_clause += "#{value[:columns]} #{value[:operand]} '#{value[:column_value]}' #{value[:and_or]} "
+      where_clause += " #{value[:and_or]} #{value[:columns]} #{value[:operand]} '#{value[:column_value]}' "
     end
   end
+  where_clause += ') AND (search_name is null)'
   where(where_clause)
  end
 

@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
       @ids = result.map{|r| r.id}.join(',')
       @show_save_button = true
     else
-      @items = Item.order("#{sort_column} #{sort_direction}").paginate(:per_page => 2, :page => params[:page])
+      @items = Item.where("search_name is null").order("#{sort_column} #{sort_direction}").paginate(:per_page => 2, :page => params[:page])
     end
     @history = Item.uniq.pluck(:search_name).compact!
   end

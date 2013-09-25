@@ -14,10 +14,9 @@
     <%= link_to "Delete search criteria", "#", :class => 'delete_search_criteria btn btn-danger' %>
     </div>
    <div class='set1'>
-   <td><%= select_tag 'item[1][columns]', options_for_select(%w{kind height emergency_exit openable}), :class => 'select140' %></td>
+   <td><%= select_tag 'item[1][columns]', options_for_select(%w{kind height emergency_exit openable}), :class => 'select140', :style => 'margin-left:70px' %></td>
    <td><%= select_tag 'item[1][operand]', options_for_select(%w{> < = !=}), :class=> 'select65' %></td>
    <td><%= text_field_tag 'item[1][column_value]', params[:search] %></td>
-   <td><%= select_tag 'item[1][and_or]', options_for_select(%w{AND OR}), :class=> 'select65' %></td>
    </div>
    <%= submit_tag 'Search', :name => nil, :class => 'btn btn-primary btn_item_search' %>
   <% end %>

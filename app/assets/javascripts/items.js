@@ -13,6 +13,8 @@
             var and_or = 'item_'+field_count+'_and_or_';
             var and_or_name = 'item['+field_count+'][and_or]'
             var html_str = "<div class='"+klass+"'>";
+            html_str += "<select class='select65 marginright5' id='"+and_or+"' name='"+and_or_name+"'><option value='AND'>AND</option>";
+            html_str += "<option value='OR'>OR</option></select>";
             html_str += "<select class='select140 marginright5' id='"+column+"' name='"+column_name+"'><option value='kind'>kind</option>";
             html_str += "<option value='height'>height</option>";
             html_str += "<option value='emergency_exit'>emergency_exit</option>";
@@ -22,8 +24,6 @@
             html_str += "<option value='='>=</option>";
             html_str += "<option value='!='>!=</option></select>";
             html_str += "<input class='marginright5' type='text' id='"+column_value+"' name='"+column_value_name+"'>";
-            html_str += "<select class='select65' id='"+and_or+"' name='"+and_or_name+"'><option value='AND'>AND</option>";
-            html_str += "<option value='OR'>OR</option></select>";
             html_str += "</div>";
             $('.search_form .btn_item_search').before($(html_str));
             self.data("field_count", field_count);
