@@ -3,6 +3,7 @@
 <%- if @show_save_button %>
     <%= link_to 'Save search', save_results_path(:ids => @ids), :class => 'btn btn-primary' %>
 <%- end %>
+<%- unless @items.blank? %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -34,3 +35,4 @@
   </tbody>
 </table>
 <%= will_paginate @items %>
+<%- end %>
