@@ -1,0 +1,29 @@
+<%- model_class = Item -%>
+<div id="items">
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+  <div id='items_search_form'>
+  <%= form_tag items_path, :method => 'get', :id => 'items_search', :class => 'search_form' do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <%= render 'items' %>
+    <div style='margin-bottom: 10px;'>
+    <%= link_to "Add new search criteria", "#", :class => 'add_new_search_criteria btn btn-success' %>
+    <%= link_to "Delete search criteria", "#", :class => 'delete_search_criteria btn btn-danger' %>
+    </div>
+   <div class='set1'>
+   <td><%= select_tag 'item[1][columns]', options_for_select(%w{kind height emergency_exit openable}), :class => 'select140' %></td>
+   <td><%= select_tag 'item[1][operand]', options_for_select(%w{> < = !=}), :class=> 'select65' %></td>
+   <td><%= text_field_tag 'item[1][column_value]', params[:search] %></td>
+   <td><%= select_tag 'item[1][and_or]', options_for_select(%w{AND OR}), :class=> 'select65' %></td>
+   </div>
+   <%= submit_tag 'Search', :name => nil, :class => 'btn btn-primary btn_item_search' %>
+  <% end %>
+
+  <%= javascript_tag "$(document).ready(function(){ $('#items_search_form').items_search_form()});" %>
+
+  </div>
+
+</div>
