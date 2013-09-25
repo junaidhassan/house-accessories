@@ -14,3 +14,11 @@
 .marginright5 {
   margin-right: 5px;
 }
+.asc {
+  background: url(/assets/sort-arrows-up.png) no-repeat center right;
+  display: inline-block;
+}
+.desc {
+  background: url(/assets/sort-arrows-down.png) no-repeat center right;
+  display: inline-block;
+}
