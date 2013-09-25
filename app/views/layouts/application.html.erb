@@ -59,9 +59,11 @@
               <div class="well sidebar-nav">
                 <ul class="nav nav-list">
                   <li class="nav-header">Search History</li>
+                  <%- unless @history.blank? %>
                   <% @history.each do |h| %>
                       <li><%= link_to h, item_path(h) %></li>
                   <% end %>
+                  <%- end %>
                 </ul>
               </div><!--/.well -->
             </div><!--/span-->
