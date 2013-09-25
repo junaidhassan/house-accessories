@@ -11,7 +11,6 @@
       <th><%= sortable :height, model_class.human_attribute_name(:height) %></th>
       <th><%= sortable :emergency_exit, model_class.human_attribute_name(:emergency_exit) %></th>
       <th><%= sortable :openable, model_class.human_attribute_name(:openable) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -21,15 +20,6 @@
         <td><%= item.height %></td>
         <td><%= item.emergency_exit %></td>
         <td><%= item.openable %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_item_path(item), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      item_path(item),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
       </tr>
     <% end %>
   </tbody>
